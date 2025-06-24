@@ -24,19 +24,16 @@ namespace UNFit
             {
                 conn.Open();
 
-                // Actividades
                 using (var cmd = new SQLiteCommand("SELECT Id_actividad, Nombre FROM ACTIVIDAD", conn))
                 using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
                         cmbActividad.Items.Add(new ComboBoxItem(reader["Nombre"].ToString(), reader["Id_actividad"].ToString()));
 
-                // Suscripciones
                 using (var cmd = new SQLiteCommand("SELECT Id_tipo_suscripcion, Nombre FROM Tipo_suscripcion", conn))
                 using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
                         cmbSuscripcion.Items.Add(new ComboBoxItem(reader["Nombre"].ToString(), reader["Id_tipo_suscripcion"].ToString()));
 
-                // Tipos de pago
                 using (var cmd = new SQLiteCommand("SELECT Id_tipo_pago, Nombre FROM Tipo_pago", conn))
                 using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
@@ -56,12 +53,10 @@ namespace UNFit
             {
                 conn.Open();
 
-                // Obtener valores seleccionados
                 var idSuscripcion = ((ComboBoxItem)cmbSuscripcion.SelectedItem).Value;
                 var idActividad = ((ComboBoxItem)cmbActividad.SelectedItem).Value;
                 var idTipoPago = ((ComboBoxItem)cmbPago.SelectedItem).Value;
 
-                // Usar el mismo INSERT que diste, pero con parámetros
                 string insertSocio = @"
         INSERT INTO SOCIO (
             Nombre, Apellidos, Cedula, Fecha_nacimiento,
@@ -94,10 +89,7 @@ namespace UNFit
                     cmd.ExecuteNonQuery();
                 }
 
-                // Obtener el ID del socio recién insertado
                 long idSocio = conn.LastInsertRowId;
-
-                // Obtener valor de la suscripción para el pago
                 double valorPago = 0;
                 using (var cmdValor = new SQLiteCommand("SELECT Valor FROM Tipo_suscripcion WHERE Id_tipo_suscripcion = @id", conn))
                 {
@@ -105,7 +97,6 @@ namespace UNFit
                     valorPago = Convert.ToDouble(cmdValor.ExecuteScalar());
                 }
 
-                // Insertar el pago
                 string insertPago = @"
         INSERT INTO PAGO (Id_socio, Fecha_pago, Valor, Id_tipo_pago)
         VALUES (@IdSocio, date('now'), @Valor, @IdTipoPago)";

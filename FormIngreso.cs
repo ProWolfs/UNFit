@@ -70,8 +70,12 @@ namespace UNFit
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            this.Close(); // Cierra el formulario actual y vuelve al anterior (usualmente Form1)
+            this.Close();
+        }
 
+        private void FormIngreso_Load(object sender, EventArgs e)
+        {
+            Utilidades.ActualizarEstadosSocios();
         }
     }
 }

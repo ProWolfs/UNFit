@@ -33,6 +33,7 @@
             this.btnSocio = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // btnIngresar
@@ -86,6 +87,28 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "UNFit";
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Animated = true;
+            this.btnAdmin.BorderColor = System.Drawing.Color.White;
+            this.btnAdmin.BorderRadius = 2;
+            this.btnAdmin.BorderThickness = 2;
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdmin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAdmin.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAdmin.ForeColor = System.Drawing.Color.Black;
+            this.btnAdmin.Location = new System.Drawing.Point(45, 278);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.PressedColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAdmin.Size = new System.Drawing.Size(91, 37);
+            this.btnAdmin.TabIndex = 4;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,13 +116,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnSocio);
             this.Controls.Add(this.btnIngresar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Menú";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +135,6 @@
         private System.Windows.Forms.Button btnSocio;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button btnAdmin;
     }
 }

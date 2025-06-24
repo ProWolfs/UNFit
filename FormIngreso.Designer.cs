@@ -132,7 +132,8 @@
             this.Controls.Add(this.txtCedula);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormIngreso";
-            this.Text = "FormIngreso";
+            this.Text = "Ingreso";
+            this.Load += new System.EventHandler(this.FormIngreso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

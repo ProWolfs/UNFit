@@ -76,5 +76,10 @@ namespace UNFit
             this.Hide();
 
         }
+
+        private void FormBuscarSocio_Load(object sender, EventArgs e)
+        {
+            Utilidades.ActualizarEstadosSocios();
+        }
     }
 }
