@@ -18,6 +18,11 @@ namespace UNFit
             InitializeComponent();
         }
 
+        private void FormBuscarSocio_Load(object sender, EventArgs e)
+        {
+            Utilidades.ActualizarEstadosSocios();
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string cedula = txtCedula.Text.Trim();
@@ -74,12 +79,6 @@ namespace UNFit
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Hide();
-
-        }
-
-        private void FormBuscarSocio_Load(object sender, EventArgs e)
-        {
-            Utilidades.ActualizarEstadosSocios();
         }
     }
 }

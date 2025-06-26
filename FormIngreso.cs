@@ -18,6 +18,16 @@ namespace UNFit
             InitializeComponent();
         }
 
+        private void FormIngreso_Load(object sender, EventArgs e)
+        {
+            Utilidades.ActualizarEstadosSocios();
+        }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string cedula = txtCedula.Text.Trim();
@@ -66,16 +76,6 @@ namespace UNFit
             }
 
             txtCedula.Clear();
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FormIngreso_Load(object sender, EventArgs e)
-        {
-            Utilidades.ActualizarEstadosSocios();
         }
     }
 }

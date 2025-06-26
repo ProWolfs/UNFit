@@ -18,7 +18,13 @@ namespace UNFit
             InitializeComponent();
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            FormAdmin admin = new FormAdmin();
+            admin.ShowDialog();
+        }
+
+        private void btnIngresar_Click_1(object sender, EventArgs e)
         {
             FormIngreso ingreso = new FormIngreso();
             ingreso.ShowDialog();
@@ -30,16 +36,10 @@ namespace UNFit
             registro.ShowDialog();
         }
 
-        private void btnSocio_Click(object sender, EventArgs e)
+        private void btnSocio_Click_1(object sender, EventArgs e)
         {
             FormBuscarSocio buscarSocio = new FormBuscarSocio();
             buscarSocio.ShowDialog();
-        }
-
-        private void btnAdmin_Click(object sender, EventArgs e)
-        {
-            FormAdmin admin = new FormAdmin();
-            admin.ShowDialog();
         }
     }
 }

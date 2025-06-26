@@ -299,6 +299,7 @@
             this.btnRegresar.BorderRadius = 2;
             this.btnRegresar.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.btnRegresar.BorderThickness = 2;
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegresar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRegresar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRegresar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

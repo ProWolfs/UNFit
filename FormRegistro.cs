@@ -117,7 +117,9 @@ namespace UNFit
         {
             this.Hide();
         }
+
     }
+
     public class ComboBoxItem
     {
         public string Text { get; set; }

@@ -44,12 +44,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.cmbSuscripcion = new System.Windows.Forms.ComboBox();
             this.cmbPago = new System.Windows.Forms.ComboBox();
             this.cmbActividad = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnRegresar = new System.Windows.Forms.Button();
+            this.btnRegistrar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRegresar = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
@@ -203,19 +203,6 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "Pago";
             // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.Snow;
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(564, 330);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(103, 37);
-            this.btnRegistrar.TabIndex = 17;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
             // cmbSuscripcion
             // 
             this.cmbSuscripcion.FormattingEnabled = true;
@@ -252,16 +239,46 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Actividad";
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Animated = true;
+            this.btnRegistrar.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegistrar.BorderRadius = 2;
+            this.btnRegistrar.BorderThickness = 2;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegistrar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegistrar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRegistrar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRegistrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRegistrar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Location = new System.Drawing.Point(583, 322);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(129, 45);
+            this.btnRegistrar.TabIndex = 23;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
             // btnRegresar
             // 
+            this.btnRegresar.Animated = true;
+            this.btnRegresar.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegresar.BorderRadius = 2;
+            this.btnRegresar.BorderThickness = 2;
             this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Location = new System.Drawing.Point(166, 330);
+            this.btnRegresar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegresar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRegresar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRegresar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRegresar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRegresar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.ForeColor = System.Drawing.Color.White;
+            this.btnRegresar.Location = new System.Drawing.Point(89, 322);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(103, 37);
-            this.btnRegresar.TabIndex = 22;
-            this.btnRegresar.Text = "⬅Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Size = new System.Drawing.Size(129, 45);
+            this.btnRegresar.TabIndex = 24;
+            this.btnRegresar.Text = "⬅ Regresar";
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // FormRegistro
@@ -272,11 +289,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmbActividad);
             this.Controls.Add(this.cmbPago);
             this.Controls.Add(this.cmbSuscripcion);
-            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -318,11 +335,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.ComboBox cmbSuscripcion;
         private System.Windows.Forms.ComboBox cmbPago;
         private System.Windows.Forms.ComboBox cmbActividad;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnRegresar;
+        private Guna.UI2.WinForms.Guna2Button btnRegistrar;
+        private Guna.UI2.WinForms.Guna2Button btnRegresar;
     }
 }
