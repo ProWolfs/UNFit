@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegresar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRenovar = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("MV Boli", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(94, 93);
+            this.label1.Location = new System.Drawing.Point(86, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 21);
+            this.label1.Size = new System.Drawing.Size(79, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Cédula";
             // 
@@ -133,13 +134,37 @@
             this.btnRegresar.Text = "⬅ Regresar";
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click_1);
             // 
+            // btnRenovar
+            // 
+            this.btnRenovar.Animated = true;
+            this.btnRenovar.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRenovar.BorderRadius = 2;
+            this.btnRenovar.BorderThickness = 2;
+            this.btnRenovar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRenovar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRenovar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRenovar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRenovar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRenovar.Enabled = false;
+            this.btnRenovar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRenovar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRenovar.ForeColor = System.Drawing.Color.White;
+            this.btnRenovar.Location = new System.Drawing.Point(62, 245);
+            this.btnRenovar.Name = "btnRenovar";
+            this.btnRenovar.Size = new System.Drawing.Size(129, 45);
+            this.btnRenovar.TabIndex = 8;
+            this.btnRenovar.Text = "Renovar";
+            this.btnRenovar.Click += new System.EventHandler(this.btnRenovar_Click);
+            // 
             // FormIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRenovar);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
@@ -147,6 +172,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCedula);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormIngreso";
             this.Text = "Ingreso";
             this.Load += new System.EventHandler(this.FormIngreso_Load);
@@ -164,5 +190,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2Button btnRegresar;
+        private Guna.UI2.WinForms.Guna2Button btnRenovar;
     }
 }
