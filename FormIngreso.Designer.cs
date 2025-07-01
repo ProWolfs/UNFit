@@ -43,9 +43,9 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(74, 117);
+            this.txtCedula.Location = new System.Drawing.Point(62, 117);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.Size = new System.Drawing.Size(129, 20);
             this.txtCedula.TabIndex = 0;
             // 
             // label1

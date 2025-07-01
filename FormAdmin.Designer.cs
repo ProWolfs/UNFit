@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtApellidos = new System.Windows.Forms.Label();
@@ -55,12 +55,12 @@
             this.cmbMonitor = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtApellido
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtApellido.Location = new System.Drawing.Point(96, 146);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 1;
             // 
             // txtNombre
             // 
@@ -73,10 +73,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(202, 123);
+            this.label1.Location = new System.Drawing.Point(201, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nombre";
             // 
@@ -84,10 +85,11 @@
             // 
             this.txtApellidos.AutoSize = true;
             this.txtApellidos.BackColor = System.Drawing.Color.Transparent;
+            this.txtApellidos.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.txtApellidos.ForeColor = System.Drawing.Color.Snow;
-            this.txtApellidos.Location = new System.Drawing.Point(202, 149);
+            this.txtApellidos.Location = new System.Drawing.Point(201, 143);
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(49, 13);
+            this.txtApellidos.Size = new System.Drawing.Size(83, 21);
             this.txtApellidos.TabIndex = 4;
             this.txtApellidos.Text = "Apellidos";
             // 
@@ -102,10 +104,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(202, 175);
+            this.label3.Location = new System.Drawing.Point(201, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(79, 21);
             this.label3.TabIndex = 8;
             this.label3.Text = "Teléfono";
             // 
@@ -120,10 +123,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Snow;
-            this.label4.Location = new System.Drawing.Point(202, 201);
+            this.label4.Location = new System.Drawing.Point(201, 195);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(64, 21);
             this.label4.TabIndex = 10;
             this.label4.Text = "Correo";
             // 
@@ -195,10 +199,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Snow;
-            this.label8.Location = new System.Drawing.Point(542, 110);
+            this.label8.Location = new System.Drawing.Point(515, 107);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.Size = new System.Drawing.Size(75, 21);
             this.label8.TabIndex = 20;
             this.label8.Text = "Nombre";
             // 
@@ -206,10 +211,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Snow;
-            this.label9.Location = new System.Drawing.Point(524, 136);
+            this.label9.Location = new System.Drawing.Point(488, 133);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.Size = new System.Drawing.Size(102, 21);
             this.label9.TabIndex = 21;
             this.label9.Text = "Descripción";
             // 
@@ -217,10 +223,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Snow;
-            this.label10.Location = new System.Drawing.Point(516, 162);
+            this.label10.Location = new System.Drawing.Point(468, 161);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 13);
+            this.label10.Size = new System.Drawing.Size(122, 21);
             this.label10.TabIndex = 22;
             this.label10.Text = "Cupo Máximo";
             // 
@@ -228,10 +235,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Snow;
-            this.label11.Location = new System.Drawing.Point(546, 188);
+            this.label11.Location = new System.Drawing.Point(519, 185);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.Size = new System.Drawing.Size(71, 21);
             this.label11.TabIndex = 23;
             this.label11.Text = "Horario";
             // 
@@ -239,10 +247,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.Snow;
-            this.label12.Location = new System.Drawing.Point(544, 214);
+            this.label12.Location = new System.Drawing.Point(510, 210);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.Size = new System.Drawing.Size(76, 21);
             this.label12.TabIndex = 24;
             this.label12.Text = "Monitor";
             // 
@@ -261,10 +270,10 @@
             this.btnRegistrarMonitor.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRegistrarMonitor.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.btnRegistrarMonitor.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistrarMonitor.Location = new System.Drawing.Point(87, 224);
+            this.btnRegistrarMonitor.Location = new System.Drawing.Point(90, 224);
             this.btnRegistrarMonitor.Name = "btnRegistrarMonitor";
             this.btnRegistrarMonitor.PressedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrarMonitor.Size = new System.Drawing.Size(109, 33);
+            this.btnRegistrarMonitor.Size = new System.Drawing.Size(132, 44);
             this.btnRegistrarMonitor.TabIndex = 25;
             this.btnRegistrarMonitor.Text = "Registrar";
             this.btnRegistrarMonitor.Click += new System.EventHandler(this.btnRegistrarMonitor_Click);
@@ -284,10 +293,10 @@
             this.btnRegistrarActividad.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRegistrarActividad.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarActividad.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistrarActividad.Location = new System.Drawing.Point(582, 237);
+            this.btnRegistrarActividad.Location = new System.Drawing.Point(545, 234);
             this.btnRegistrarActividad.Name = "btnRegistrarActividad";
             this.btnRegistrarActividad.PressedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrarActividad.Size = new System.Drawing.Size(110, 31);
+            this.btnRegistrarActividad.Size = new System.Drawing.Size(147, 44);
             this.btnRegistrarActividad.TabIndex = 26;
             this.btnRegistrarActividad.Text = "Registrar";
             this.btnRegistrarActividad.Click += new System.EventHandler(this.btnRegistrarActividad_Click);
@@ -307,10 +316,10 @@
             this.btnRegresar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRegresar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.Color.Black;
-            this.btnRegresar.Location = new System.Drawing.Point(328, 313);
+            this.btnRegresar.Location = new System.Drawing.Point(321, 315);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.PressedColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegresar.Size = new System.Drawing.Size(127, 37);
+            this.btnRegresar.Size = new System.Drawing.Size(164, 62);
             this.btnRegresar.TabIndex = 27;
             this.btnRegresar.Text = "⬅Regresar";
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
@@ -354,7 +363,7 @@
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtApellido);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -367,7 +376,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtApellidos;

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegresar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,18 +43,18 @@
             // 
             this.txtCedula.BackColor = System.Drawing.SystemColors.Menu;
             this.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCedula.Location = new System.Drawing.Point(71, 132);
+            this.txtCedula.Location = new System.Drawing.Point(54, 132);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 13);
+            this.txtCedula.Size = new System.Drawing.Size(135, 13);
             this.txtCedula.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(274, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(195, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 327);
+            this.dataGridView1.Size = new System.Drawing.Size(593, 343);
             this.dataGridView1.TabIndex = 2;
             // 
             // label1
@@ -62,7 +63,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("MV Boli", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(80, 101);
+            this.label1.Location = new System.Drawing.Point(83, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 28);
             this.label1.TabIndex = 3;
@@ -115,12 +116,33 @@
             this.btnRegresar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRegresar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.Color.White;
-            this.btnRegresar.Location = new System.Drawing.Point(54, 202);
+            this.btnRegresar.Location = new System.Drawing.Point(54, 253);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(135, 45);
             this.btnRegresar.TabIndex = 7;
             this.btnRegresar.Text = "⬅ Regresar";
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Animated = true;
+            this.btnEliminar.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminar.BorderRadius = 2;
+            this.btnEliminar.BorderThickness = 2;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEliminar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEliminar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEliminar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEliminar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEliminar.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(54, 202);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(135, 45);
+            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FormBuscarSocio
             // 
@@ -130,6 +152,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
@@ -154,5 +177,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2Button btnRegresar;
+        private Guna.UI2.WinForms.Guna2Button btnEliminar;
     }
 }

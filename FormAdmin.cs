@@ -16,6 +16,25 @@ namespace UNFit
         // Evento para registrar un nuevo monitor
         private void btnRegistrarMonitor_Click(object sender, EventArgs e)
         {
+            // Validaciones antes de registrar el monitor
+            if (!Validador.NoVacio(txtNombre.Text) || !Validador.NoVacio(txtApellidos.Text))
+            {
+                MessageBox.Show("Ingrese nombre y apellidos del monitor.");
+                return;
+            }
+
+            if (!Validador.EsTelefonoValido(txtTelefono.Text))
+            {
+                MessageBox.Show("Número de teléfono inválido.");
+                return;
+            }
+
+            if (!Validador.EsEmailValido(txtEmail.Text))
+            {
+                MessageBox.Show("Correo electrónico inválido.");
+                return;
+            }
+
             using (var conn = Conexion.Conectar())
             {
                 conn.Open();
@@ -43,7 +62,16 @@ namespace UNFit
                         MessageBox.Show($"Error al registrar el monitor: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                cmbMonitor.Items.Clear();
+                using (var cmd = new SQLiteCommand("SELECT Id_monitor, Nombre FROM MONITOR", conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                        cmbMonitor.Items.Add(new ComboBoxItem(reader["Nombre"].ToString(), reader["Id_monitor"].ToString()));
+                }
             }
+
+
         }
 
         // Evento para registrar una nueva actividad
@@ -116,6 +144,7 @@ namespace UNFit
         {
             txtNombre.Clear();
             txtTelefono.Clear();
+            txtApellido.Clear();
             txtEmail.Clear();
         }
 

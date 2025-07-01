@@ -48,6 +48,43 @@ namespace UNFit
         // Evento que se ejecuta al hacer clic en el botón "Registrar"
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            //  Validaciones antes de registrar
+            if (!Validador.NoVacio(txtNombre.Text) || !Validador.NoVacio(txtApellidos.Text))
+            {
+                MessageBox.Show("Debe ingresar nombre y apellidos.");
+                return;
+            }
+
+            if (!Validador.EsCedulaValida(txtCedula.Text))
+            {
+                MessageBox.Show("Cédula inválida. Debe tener al menos 6 dígitos y contener solo números.");
+                return;
+            }
+
+            if (!Validador.EsEmailValido(txtEmail.Text))
+            {
+                MessageBox.Show("Correo electrónico inválido.");
+                return;
+            }
+
+            if (!Validador.EsFechaValida(txtNacimiento.Text))
+            {
+                MessageBox.Show("Fecha de nacimiento inválida.");
+                return;
+            }
+
+            if (!Validador.EsTelefonoValido(txtTelefono.Text))
+            {
+                MessageBox.Show("Número de teléfono inválido.");
+                return;
+            }
+
+            if (cmbActividad.SelectedItem == null || cmbSuscripcion.SelectedItem == null || cmbPago.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione una suscripción, actividad y tipo de pago.", "Campos faltantes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Validar que se hayan seleccionado todos los campos requeridos
             if (cmbActividad.SelectedItem == null || cmbSuscripcion.SelectedItem == null || cmbPago.SelectedItem == null)
             {

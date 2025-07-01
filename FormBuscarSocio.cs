@@ -84,9 +84,6 @@ namespace UNFit
                     }
                 }
             }
-
-            // Limpiar el campo de cédula después de la búsqueda
-            txtCedula.Clear();
         }
 
         // Evento para regresar al formulario anterior (oculta el formulario actual)
@@ -94,5 +91,31 @@ namespace UNFit
         {
             this.Hide();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string cedula = txtCedula.Text.Trim();
+            if (string.IsNullOrEmpty(cedula)) return;
+
+            if (MessageBox.Show("¿Seguro que desea eliminar al socio?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (var conn = Conexion.Conectar())
+                {
+                    conn.Open();
+                    string query = "DELETE FROM SOCIO WHERE Cedula = @cedula";
+                    using (var cmd = new SQLiteCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@cedula", cedula);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Socio eliminado correctamente.");
+                dataGridView1.DataSource = null;
+            }
+            // Limpiar el campo de cédula después de la búsqueda
+            txtCedula.Clear();
+        }
+
+
     }
 }
