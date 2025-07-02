@@ -47,7 +47,7 @@ namespace UNFit
                 {
                     // Asignar valores desde los campos de texto
                     cmd.Parameters.AddWithValue("@nombre", txtNombre.Text.Trim());
-                    cmd.Parameters.AddWithValue("@apellidos", txtApellidos.Text.Trim());
+                    cmd.Parameters.AddWithValue("@apellidos", txtApellido.Text.Trim());
                     cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text.Trim());
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
 
