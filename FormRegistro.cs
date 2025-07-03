@@ -67,12 +67,6 @@ namespace UNFit
                 return;
             }
 
-            if (!Validador.EsFechaValida(txtNacimiento.Text))
-            {
-                MessageBox.Show("Fecha de nacimiento inválida.");
-                return;
-            }
-
             if (!Validador.EsTelefonoValido(txtTelefono.Text))
             {
                 MessageBox.Show("Número de teléfono inválido.");
@@ -125,7 +119,7 @@ namespace UNFit
                     cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text.Trim());
                     cmd.Parameters.AddWithValue("@Apellidos", txtApellidos.Text.Trim());
                     cmd.Parameters.AddWithValue("@Cedula", txtCedula.Text.Trim());
-                    cmd.Parameters.AddWithValue("@FechaNacimiento", txtNacimiento.Text.Trim());
+                    cmd.Parameters.AddWithValue("@FechaNacimiento", dtpNacimiento.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text.Trim());
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
                     cmd.Parameters.AddWithValue("@IdSuscripcion", idSuscripcion);
@@ -164,7 +158,7 @@ namespace UNFit
             txtNombre.Clear();
             txtApellidos.Clear();
             txtCedula.Clear();
-            txtNacimiento.Clear();
+            dtpNacimiento.Value = DateTime.Today; // Resetea el DateTimePicker a la fecha actual
             txtTelefono.Clear();
             txtEmail.Clear();
             cmbActividad.SelectedIndex = -1; // Resetea el ComboBox de actividades

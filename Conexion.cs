@@ -57,12 +57,6 @@ public static class Validador
         return !string.IsNullOrEmpty(cedula) && cedula.All(char.IsDigit) && cedula.Length >= 10;
     }
 
-    // Verifica si una fecha es válida (formato flexible)
-    public static bool EsFechaValida(string fecha)
-    {
-        return DateTime.TryParse(fecha, out _);
-    }
-
     // Verifica que un campo no esté vacío o con espacios
     public static bool NoVacio(string texto)
     {

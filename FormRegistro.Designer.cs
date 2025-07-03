@@ -32,8 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtNacimiento = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +48,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegresar = new Guna.UI2.WinForms.Guna2Button();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -78,20 +78,6 @@
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(100, 20);
             this.txtApellidos.TabIndex = 2;
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(89, 161);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 20);
-            this.txtCedula.TabIndex = 3;
-            // 
-            // txtNacimiento
-            // 
-            this.txtNacimiento.Location = new System.Drawing.Point(89, 194);
-            this.txtNacimiento.Name = "txtNacimiento";
-            this.txtNacimiento.Size = new System.Drawing.Size(100, 20);
-            this.txtNacimiento.TabIndex = 4;
             // 
             // txtTelefono
             // 
@@ -149,7 +135,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Snow;
-            this.label5.Location = new System.Drawing.Point(195, 194);
+            this.label5.Location = new System.Drawing.Point(244, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 21);
             this.label5.TabIndex = 12;
@@ -281,6 +267,22 @@
             this.btnRegresar.Text = "⬅ Regresar";
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(89, 161);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.TabIndex = 3;
+            // 
+            // dtpNacimiento
+            // 
+            this.dtpNacimiento.Location = new System.Drawing.Point(38, 198);
+            this.dtpNacimiento.MaxDate = new System.DateTime(2090, 12, 31, 0, 0, 0, 0);
+            this.dtpNacimiento.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
+            this.dtpNacimiento.Name = "dtpNacimiento";
+            this.dtpNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtpNacimiento.TabIndex = 25;
+            // 
             // FormRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +291,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label10);
@@ -305,7 +308,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtNacimiento);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtNombre);
@@ -325,8 +327,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtNacimiento;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label2;
@@ -343,5 +343,7 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Button btnRegistrar;
         private Guna.UI2.WinForms.Guna2Button btnRegresar;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.DateTimePicker dtpNacimiento;
     }
 }
