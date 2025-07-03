@@ -30,13 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscarSocio));
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new Guna.UI2.WinForms.Guna2Button();
             this.btnRegresar = new Guna.UI2.WinForms.Guna2Button();
             this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblResumenSocio = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCedula
@@ -47,15 +46,6 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(135, 13);
             this.txtCedula.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(195, 33);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(593, 343);
-            this.dataGridView1.TabIndex = 2;
             // 
             // label1
             // 
@@ -144,6 +134,17 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // lblResumenSocio
+            // 
+            this.lblResumenSocio.BackColor = System.Drawing.Color.Transparent;
+            this.lblResumenSocio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblResumenSocio.Font = new System.Drawing.Font("MV Boli", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResumenSocio.ForeColor = System.Drawing.Color.Snow;
+            this.lblResumenSocio.Location = new System.Drawing.Point(195, 54);
+            this.lblResumenSocio.Name = "lblResumenSocio";
+            this.lblResumenSocio.Size = new System.Drawing.Size(569, 373);
+            this.lblResumenSocio.TabIndex = 9;
+            // 
             // FormBuscarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,19 +153,18 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblResumenSocio);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtCedula);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormBuscarSocio";
             this.Text = "BuscarSocio";
             this.Load += new System.EventHandler(this.FormBuscarSocio_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,11 +172,11 @@
 
         #endregion
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnBuscar;
         private Guna.UI2.WinForms.Guna2Button btnRegresar;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
+        private System.Windows.Forms.Label lblResumenSocio;
     }
 }

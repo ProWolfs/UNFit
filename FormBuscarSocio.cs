@@ -28,62 +28,96 @@ namespace UNFit
         // Evento que se ejecuta al hacer clic en el botón "Buscar"
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Obtener la cédula ingresada por el usuario
             string cedula = txtCedula.Text.Trim();
 
-            // Validar si el campo está vacío
             if (string.IsNullOrEmpty(cedula))
             {
                 MessageBox.Show("Por favor ingrese la cédula del socio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Establecer la conexión con la base de datos
             using (var conn = Conexion.Conectar())
             {
                 conn.Open();
 
-                // Consulta SQL para obtener los datos del socio por cédula
-                string query = @"SELECT 
-                            Id_socio,
-                            Nombre,
-                            Apellidos,
-                            Cedula,
-                            Telefono,
-                            Email,
-                            Fecha_inicio,
-                            Fecha_fin,
-                            Estado_suscripcion,
-                            Id_tipo_suscripcion,
-                            Id_actividad
-                        FROM SOCIO
-                        WHERE Cedula = @cedula;";
+                // Nueva consulta con JOIN para obtener actividad y tipo de suscripción
+                string query = @"
+                SELECT 
+                    S.Nombre,
+                    S.Apellidos,
+                    S.Cedula,
+                    S.Telefono,
+                    S.Email,
+                    S.Fecha_inicio,
+                    S.Fecha_fin,
+                    S.Estado_suscripcion,
+                    TS.Nombre AS TipoSuscripcion,
+                    A.Nombre AS Actividad,
+                    A.Horario,
+                    M.Nombre || ' ' || M.Apellidos AS Monitor,
+                    (SELECT MAX(Fecha_pago)
+                        FROM PAGO
+                            WHERE Id_socio = S.Id_socio
+                    ) AS UltimaFechaPago,
+                    (
+                        SELECT Valor
+                        FROM PAGO
+                        WHERE Id_socio = S.Id_socio
+                        ORDER BY Fecha_pago DESC
+                        LIMIT 1) 
+                    AS UltimoValorPago
+                    FROM SOCIO S
+                    JOIN Tipo_suscripcion TS ON S.Id_tipo_suscripcion = TS.Id_tipo_suscripcion
+                    JOIN ACTIVIDAD A ON S.Id_actividad = A.Id_actividad
+                    JOIN MONITOR M ON A.Id_monitor = M.Id_monitor
+                    WHERE S.Cedula = @cedula;";
 
-                // Ejecutar la consulta con el parámetro @cedula
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@cedula", cedula);
 
-                    // Llenar los datos obtenidos en un DataTable
                     var adapter = new SQLiteDataAdapter(cmd);
                     var dt = new DataTable();
                     adapter.Fill(dt);
 
-                    // Validar si se encontró algún resultado
                     if (dt.Rows.Count == 0)
                     {
-                        // Mostrar mensaje si no se encuentra el socio
                         MessageBox.Show("Socio no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dataGridView1.DataSource = null;
+                        lblResumenSocio.Text = "";
                     }
                     else
                     {
-                        // Mostrar los datos del socio en el DataGridView
-                        dataGridView1.DataSource = dt;
-                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        var row = dt.Rows[0];
+
+                        // Construir resumen
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine($"Nombre: {row["Nombre"]} {row["Apellidos"]}");
+                        sb.AppendLine($"Cédula: {row["Cedula"]}");
+                        sb.AppendLine($"Teléfono: {row["Telefono"]}");
+                        sb.AppendLine($"Email: {row["Email"]}");
+                        sb.AppendLine($"Fecha Inicio: {Convert.ToDateTime(row["Fecha_inicio"]).ToString("yyyy-MM-dd")}");
+                        sb.AppendLine($"Fecha Fin: {Convert.ToDateTime(row["Fecha_fin"]).ToString("yyyy-MM-dd")}");
+                        sb.AppendLine($"Estado: {row["Estado_suscripcion"]}");
+                        sb.AppendLine($"Tipo de Suscripción: {row["TipoSuscripcion"]}");
+                        sb.AppendLine($"Actividad: {row["Actividad"]}");
+                        sb.AppendLine($"Horario: {row["Horario"]}");
+                        sb.AppendLine($"Monitor: {row["Monitor"]}");
+
+                        if (row["UltimaFechaPago"] != DBNull.Value && row["UltimoValorPago"] != DBNull.Value)
+                        {
+                            sb.AppendLine($"Último pago: {Convert.ToDateTime(row["UltimaFechaPago"]).ToString("yyyy-MM-dd")} - Valor: ${Convert.ToDouble(row["UltimoValorPago"]):0.00}");
+                        }
+                        else
+                        {
+                            sb.AppendLine("Último pago: No disponible");
+                        }
+
+                        lblResumenSocio.Text = sb.ToString();
                     }
+
                 }
             }
+
         }
 
         // Evento para regresar al formulario anterior (oculta el formulario actual)
@@ -110,12 +144,13 @@ namespace UNFit
                     }
                 }
                 MessageBox.Show("Socio eliminado correctamente.");
-                dataGridView1.DataSource = null;
+                lblResumenSocio.Text = "";
             }
-            // Limpiar el campo de cédula después de la búsqueda
+
             txtCedula.Clear();
         }
 
 
     }
+
 }

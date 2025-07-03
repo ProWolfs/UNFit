@@ -35,58 +35,68 @@ namespace UNFit
             if (string.IsNullOrEmpty(cedula))
             {
                 MessageBox.Show("Por favor ingrese la cédula del socio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Si no se ingresó cédula muestra mensaje
+                return;
             }
 
             using (var conn = Conexion.Conectar())
             {
-                conn.Open(); // Abre la conexión a la base de datos
+                conn.Open();
 
                 // Consulta que obtiene información del socio, actividad y monitor
                 string query = @"
-                SELECT 
-                    S.Id_socio,
-                    S.Nombre, 
-                    S.Apellidos, 
-                    M.Nombre || ' ' || M.Apellidos AS Monitor,
-                    S.Fecha_fin AS 'Fecha de Vencimiento',
-                    S.Estado_suscripcion AS 'Estado'
-                FROM SOCIO S
-                JOIN ACTIVIDAD A ON S.Id_actividad = A.Id_actividad
-                JOIN MONITOR M ON A.Id_monitor = M.Id_monitor
-                WHERE S.Cedula = @cedula;";
+        SELECT 
+            S.Id_socio,
+            S.Nombre, 
+            S.Apellidos, 
+            M.Nombre || ' ' || M.Apellidos AS Monitor,
+            A.Nombre AS Actividad,
+            A.Horario,    
+            S.Fecha_fin AS 'Fecha de Vencimiento',
+            S.Estado_suscripcion AS 'Estado'
+        FROM SOCIO S
+        JOIN ACTIVIDAD A ON S.Id_actividad = A.Id_actividad
+        JOIN MONITOR M ON A.Id_monitor = M.Id_monitor
+        WHERE S.Cedula = @cedula;";
 
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@cedula", cedula); // Agrega parámetro de cédula a la consulta
+                    cmd.Parameters.AddWithValue("@cedula", cedula);
 
                     var adapter = new SQLiteDataAdapter(cmd);
                     var dt = new DataTable();
-                    adapter.Fill(dt); // Llena el DataTable con los resultados
+                    adapter.Fill(dt);
 
                     if (dt.Rows.Count == 0)
                     {
                         MessageBox.Show("Socio no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dataGridView1.DataSource = null; // Limpia la tabla
-                        btnRenovar.Enabled = false; // Desactiva el botón de renovación
+                        lblResumenSocio.Text = ""; // Limpiar resumen si no hay resultados
+                        btnRenovar.Enabled = false;
                     }
                     else
                     {
-                        dataGridView1.DataSource = dt;
-                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Ajusta columnas al contenido
+                        // Mostramos el resumen en formato legible usando StringBuilder
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine($"Nombre: {dt.Rows[0]["Nombre"]} {dt.Rows[0]["Apellidos"]}");
+                        sb.AppendLine($"Monitor: {dt.Rows[0]["Monitor"]}");
+                        sb.AppendLine($"Actividad: {dt.Rows[0]["Actividad"]}");
+                        sb.AppendLine($"Horario: {dt.Rows[0]["Horario"]}");
+                        sb.AppendLine($"Vencimiento: {Convert.ToDateTime(dt.Rows[0]["Fecha de Vencimiento"]).ToString("yyyy-MM-dd")}");
+                        sb.AppendLine($"Estado: {dt.Rows[0]["Estado"]}");
 
-                        string estado = dt.Rows[0]["Estado"].ToString(); // Obtiene el estado (Activo/Inactivo)
-                        int idSocio = Convert.ToInt32(dt.Rows[0]["Id_socio"]); // Obtiene el Id del socio
-                        btnRenovar.Tag = idSocio; // Guarda el Id en la propiedad Tag del botón Renovar
+                        lblResumenSocio.Text = sb.ToString(); // Mostrar en el Label
+
+                        // Validar estado de suscripción
+                        string estado = dt.Rows[0]["Estado"].ToString();
+                        int idSocio = Convert.ToInt32(dt.Rows[0]["Id_socio"]);
+                        btnRenovar.Tag = idSocio;
 
                         if (estado == "Activo")
                         {
-                            btnRenovar.Enabled = false; // Desactiva el botón de renovar
+                            btnRenovar.Enabled = false;
 
                             string fecha = DateTime.Now.ToString("yyyy-MM-dd");
                             string hora = DateTime.Now.ToString("HH:mm:ss");
 
-                            // Inserta la asistencia del socio en la tabla ASISTENCIA
                             string insert = @"INSERT INTO ASISTENCIA (Id_socio, Fecha, Hora) VALUES (@id, @fecha, @hora);";
 
                             using (var asistenciaCmd = new SQLiteCommand(insert, conn))
@@ -94,14 +104,13 @@ namespace UNFit
                                 asistenciaCmd.Parameters.AddWithValue("@id", idSocio);
                                 asistenciaCmd.Parameters.AddWithValue("@fecha", fecha);
                                 asistenciaCmd.Parameters.AddWithValue("@hora", hora);
-                                asistenciaCmd.ExecuteNonQuery(); // Ejecuta el INSERT
+                                asistenciaCmd.ExecuteNonQuery();
                             }
 
                             MessageBox.Show("Asistencia registrada correctamente.", "Ingreso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            // Si el socio está inactivo, muestra mensaje y activa botón para renovar
                             MessageBox.Show("La suscripción del socio ha vencido. No puede ingresar.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             btnRenovar.Enabled = true;
                         }

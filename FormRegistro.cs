@@ -100,19 +100,16 @@ namespace UNFit
         INSERT INTO SOCIO (
             Nombre, Apellidos, Cedula, Fecha_nacimiento,
             Telefono, Email, Fecha_inicio, Fecha_fin,
-            Estado_suscripcion, Id_tipo_suscripcion, Id_actividad
-        )
-        VALUES (
+            Estado_suscripcion, Id_tipo_suscripcion, Id_actividad )
+            VALUES (
             @Nombre, @Apellidos, @Cedula, @FechaNacimiento,
             @Telefono, @Email,
             date('now'),
             date('now', (
                 SELECT '+' || Duracion_dias || ' days'
                 FROM Tipo_suscripcion
-                WHERE Id_tipo_suscripcion = @IdSuscripcion
-            )),
-            'Activo', @IdSuscripcion, @IdActividad
-        )";
+                WHERE Id_tipo_suscripcion = @IdSuscripcion )),
+            'Activo', @IdSuscripcion, @IdActividad )";
 
                 using (var cmd = new SQLiteCommand(insertSocio, conn))
                 {
@@ -141,8 +138,8 @@ namespace UNFit
 
                 // Insertar el pago inicial del socio
                 string insertPago = @"
-        INSERT INTO PAGO (Id_socio, Fecha_pago, Valor, Id_tipo_pago)
-        VALUES (@IdSocio, date('now'), @Valor, @IdTipoPago)";
+                  INSERT INTO PAGO (Id_socio, Fecha_pago, Valor, Id_tipo_pago)
+                  VALUES (@IdSocio, date('now'), @Valor, @IdTipoPago)";
 
                 using (var cmdPago = new SQLiteCommand(insertPago, conn))
                 {
